@@ -9,7 +9,7 @@ export default function header(){
     const url = usePathname()
     console.log(url)
      if (typeof url !== "string") {
-        return null; // ou un loader si tu veux
+        return null; 
     }
     return(
         <header className={url === "/" ? "mainheader" : "reduceheader"}>
