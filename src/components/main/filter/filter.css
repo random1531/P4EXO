@@ -1,0 +1,10 @@
+.selectFilterMain{
+    width: 195px;
+height: 56px;
+border-radius: 11px;
+background-color: white;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+}

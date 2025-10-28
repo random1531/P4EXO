@@ -1,0 +1,108 @@
+article {
+    width: 380px;
+    height: 731px;
+    box-shadow: 0px 4px 34px 30px #0000000A;
+    border-radius: 21px;
+    background-color: #FFFFFF;
+display:flex ;
+flex-direction: column;
+}
+
+.headerCard {
+    width: 100%;
+    position: relative;
+    height: 253px;
+}
+
+.picturecard {
+    width: 380px;
+    height: 253px;
+    border-radius: 21px 21px 0 0;
+    object-fit: cover;
+}
+
+.headerCard span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    color: black;
+    top: 21px;
+    right: 21px;
+    font-family: Manrope;
+    font-weight: 400;
+    font-size: 12px;
+    width: 63px;
+    height: 26px;
+    padding-top: 5px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    background-color: #FFD15B;
+    border-radius: 14px;
+}
+
+.ingredientListCard{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+.textcontentCardDescription {
+    width: 330px;
+    height: 76px;
+    overflow: hidden;
+    font-family: Manrope;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.textcontentCard {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 478px;
+    gap: 25px;
+   
+}
+
+.textcontentCard h3 {
+    text-align: left;
+    width: 330px;
+}
+
+.ingredientName{
+list-style: none;
+padding: 0;
+font-family: Manrope;
+font-weight: 500;
+font-size: 14px;
+color: #1B1B1B;
+
+}
+
+.ingredientQuantity{
+list-style: none;
+padding: 0;
+font-family: Manrope;
+font-weight: 400;
+font-size: 14px;
+color: #7A7A7A;
+
+}
+.cardInformationreceipt{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.spanCard{
+    font-family: Manrope;
+font-weight: 700;
+font-style: Bold;
+font-size: 12px;
+line-height: 100%;
+letter-spacing: 9%;
+text-transform: uppercase;
+color: #7A7A7A;
+}
