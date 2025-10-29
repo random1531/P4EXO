@@ -1,10 +1,44 @@
-.selectFilterMain{
+.selectFilterMain {
     width: 195px;
-height: 56px;
-border-radius: 11px;
-background-color: white;
-display: flex;
-align-items: center;
-justify-content: center;
-cursor: pointer;
+    height: 56px;
+    border-radius: 11px;
+    background-color: white;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.selectFilterMain2 {
+    width: 195px;
+    height: 315px;
+    border-radius: 11px;
+    flex-direction: column;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+    gap: 10px;
+}
+
+li,ul{
+    text-decoration: none;
+    list-style: none;
+}
+
+.yellow{
+    background-color: yellow;
+}
+
+ul{
+    max-height: 202px ;
+    overflow: scroll;
+}
+.headerFilter{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
 }

@@ -15,7 +15,7 @@ console.log(uniqueIngredients)
 
   return (
     <div className="cardContente">
-      <div>
+      <div className="new">
         <Filter ValueFilter={uniqueAppareil} />
          <Filter ValueFilter={uniqueUstensiles} />
           <Filter ValueFilter={uniqueIngredients} />
