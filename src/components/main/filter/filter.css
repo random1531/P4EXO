@@ -18,27 +18,43 @@
     background-color: white;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     cursor: pointer;
-    
+
     gap: 10px;
 }
 
-li,ul{
+li,
+ul {
     text-decoration: none;
     list-style: none;
 }
 
-.yellow{
+.yellow {
     background-color: yellow;
 }
 
-ul{
-    max-height: 202px ;
-    overflow: scroll;
+ul {
+    max-height: 202px;
+    overflow: hidden;
 }
-.headerFilter{
+.headerFilter {
     display: flex;
     justify-content: space-around;
     width: 100%;
+    height: 56px;
+    align-items: center;
+}
+
+.selected {
+    width: 195px;
+    height: 53px;
+    gap: 60px;
+    opacity: 1;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffd15b;
+    cursor: pointer;
 }
