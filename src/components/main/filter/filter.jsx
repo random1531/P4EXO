@@ -14,12 +14,13 @@ export default function filter({ ValueFilter}) {
             </div>
             {isOpen && (
                 <div>
-                        <input type="text" onChange={(e)=> settesest(e.target.value)}/>
+                        <input type="search" onChange={(e)=> settesest(e.target.value)}/>
                     <ul>
                         {ValuFiltered.map((item) =>
                             <li onClick={() => handleItemClick(item)} className={selected === item ? "yellow":" "} key={item}>{item}</li>)}
                     </ul>
                 </div>
+                
             )}
         </div>
     )

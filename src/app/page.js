@@ -13,13 +13,13 @@ const uniqueUstensiles = [...new Set(Ustensiles)]
 const uniqueAppareil = [...new Set(Appareil)]
 console.log(uniqueIngredients)
 
-  return (
-    <div className="cardContente">
+  return (<>
       <div className="new">
         <Filter ValueFilter={uniqueAppareil} />
          <Filter ValueFilter={uniqueUstensiles} />
           <Filter ValueFilter={uniqueIngredients} />
       </div>
+    <div className="cardContente">
       {Data.map((e) => (
         <Link key={e.slug}  href={`receipt/${e.slug}`}>
         <Card 
@@ -31,5 +31,6 @@ console.log(uniqueIngredients)
         </Link>
       ))}
     </div>
+      </>
   );
 }
