@@ -1,6 +1,7 @@
 import "./card.css"
 import Image from "next/image"
 import Link from "next/link"
+import Liingredient from "../../main/liIngredient/liingredient"
 
 export default function cards({ time, picture, namereceipt, description, ingredient }) {
     return (
@@ -21,13 +22,7 @@ export default function cards({ time, picture, namereceipt, description, ingredi
                     <div>
                         <span className="spanCard">Ingrédients</span>
                         <div className="ingredientListCard">
-                            {ingredient.map((e) => (
-                                <ul key={e.ingredient}>
-                                    <li className="ingredientName">{e.ingredient}</li>
-                                    <li className="ingredientQuantity">{e.quantity}{e.unit}</li>
-                                </ul>
-
-                            ))}
+                         <Liingredient item={ingredient}/>
                         </div>
                     </div>
                 </div>

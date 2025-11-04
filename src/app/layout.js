@@ -1,7 +1,10 @@
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "../components/header/header"
 import Footer from "../components/footer/footer"
+import {SearchProvider} from "../context/SearchContext"
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -18,12 +21,15 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
   return (
     <html lang="fr">
       <body >
-    <Header/>
-        {children}
-      <Footer/>
+        <SearchProvider>
+          <Header />
+          {children}
+          <Footer />
+        </SearchProvider>
       </body>
     </html>
   );

@@ -3,19 +3,29 @@ import Card from "../components/main/card/card";
 import Data from "../data/receip.json";
 import Filter from "../components/main/filter/filter";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
+import { SearchContext } from "../context/SearchContext";
+
 export default function Home() {
   const [data, setdata] = useState(Data);
   const originalData = Data;
-  const Appareil = originalData.map((item) => item.appliance);
-  const Ustensiles = originalData.flatMap((item) => item.ustensils);
-  const Ingredients = originalData.flatMap((item) =>
+  const { search } = useContext(SearchContext);
+  const Appareil = data.map((item) => item.appliance);
+  const Ustensiles = data.flatMap((item) => item.ustensils);
+  const Ingredients = data.flatMap((item) =>
     item.ingredients.map((i) => i.ingredient)
   );
   const uniqueIngredients = [...new Set(Ingredients)];
   const uniqueUstensiles = [...new Set(Ustensiles)];
   const uniqueAppareil = [...new Set(Appareil)];
-  console.log(data);
+
+  useEffect(() => {
+    if (search.length >= 3) {
+      setdata(data.filter((item) => item.slug.includes(search)));
+    } else {
+      setdata(Data)
+    }
+  }, [search])
 
   const resetFilters = () => {
     setdata(originalData);

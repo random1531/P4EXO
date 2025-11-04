@@ -45,9 +45,12 @@ export default function filter({ ValueFilter, OnselectFilter, OnResetFilter }) {
         )}
       </div>
       {selected && (
-        <p className="selected" onClick={() => handleunselect()}>
+        <div className="selected" >
+        <p >
           {selectedValue}{" "}
         </p>
+        <p onClick={() => handleunselect()}>X</p>
+        </div>
       )}
     </div>
   );

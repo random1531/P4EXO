@@ -1,0 +1,15 @@
+img {
+    width: 606px;
+    height: 738px;
+    border-radius: 21px;
+}
+
+.mainpage{
+display: flex;
+gap: 82px;
+padding-top: 70px;
+padding-right: 90px;
+padding-bottom: 70px;
+padding-left: 90px;
+
+}
