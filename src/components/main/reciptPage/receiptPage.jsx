@@ -21,8 +21,8 @@ export default async function pageReceipt({ picture, Title, item, time, ustencil
                     <p className='spanCard'>Ustensiles nécessaires</p>
                     <div>
                         {ustencil.map((item) =>
-                            <div>
-                                <p key={item}>{item}</p>
+                            <div  key={item}>
+                                <p>{item}</p>
                                 <p>1</p>
                             </div>)}
                     </div>
