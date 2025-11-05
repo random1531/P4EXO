@@ -6,6 +6,14 @@ export default async function receiptPage({params}){
     const DataReceipt = Data.find((e)=>e.slug===slug)
 
     return(
-        <PageReceipt picture={DataReceipt.image} Title={DataReceipt.name} item={DataReceipt.ingredients}/>
+        <PageReceipt 
+        picture={DataReceipt.image} 
+        Title={DataReceipt.name} 
+        item={DataReceipt.ingredients} 
+        time={DataReceipt.time} 
+        ustencil={DataReceipt.ustensils} 
+        appareil={DataReceipt.appliance}
+        recette={DataReceipt.description}
+        />
     )
 }

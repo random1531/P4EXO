@@ -4,18 +4,18 @@ import Logo from "../../../public/Logo.png"
 import BackgroundPicture from "../../../public/header.jpg"
 import Image from "next/image"
 import { usePathname } from "next/navigation";
-import {useContext} from 'react'
+import { useContext } from 'react'
 import { SearchContext } from "@/context/SearchContext";
 
 export default function header() {
   const url = usePathname()
-   const { search, setSearch } = useContext(SearchContext);
+  const { search, setSearch } = useContext(SearchContext);
 
   const handleChange = (item) => {
     setSearch(item.target.value)
   }
 
-  console.log(search.length < 3 ? "":search);
+  console.log(search.length < 3 ? "" : search);
   if (typeof url !== "string") {
     return null;
   }
@@ -24,7 +24,10 @@ export default function header() {
       {url === "/" && (
         <>
           <h1 className="headerTextSite">DÉCOUVREZ NOS RECETTES DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES</h1>
-          <input type="search" className="inputshearch" placeholder="Rechercher une recette, un ingrédient, ..." onChange={handleChange} value={search}/>
+          <label>
+            <input type="search" className="inputshearch" placeholder="Rechercher une recette, un ingrédient, ..." onChange={handleChange} value={search} />
+            <i className="fa-solid fa-magnifying-glass loupe"></i>
+          </label>
         </>
 
       )}

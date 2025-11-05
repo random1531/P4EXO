@@ -24,6 +24,27 @@
     z-index: 2;
 }
 
+label{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loupe{
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    font-size: 20px;
+    height: 52px;
+    background-color: black;
+    color: white;
+    right: 5px;
+}
+
 .inputshearch {
     width: 954px;
     height: 72px;

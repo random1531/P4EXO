@@ -8,67 +8,72 @@ import { SearchContext } from "../context/SearchContext";
 
 export default function Home() {
   const [data, setdata] = useState(Data);
-  const originalData = Data;
+  const [selectedIngredient, setselectedIngredient] = useState(null);
+  const [selectedAppliance, setselectedAppliance] = useState(null);
+  const [selectedUstensil, setselectedUstensil] = useState(null);
   const { search } = useContext(SearchContext);
-  const Appareil = data.map((item) => item.appliance);
-  const Ustensiles = data.flatMap((item) => item.ustensils);
-  const Ingredients = data.flatMap((item) =>
-    item.ingredients.map((i) => i.ingredient)
+
+  const originalData = Data.filter((item) =>
+    (!selectedAppliance || item.appliance.toLowerCase() === selectedAppliance) &&
+    (!selectedUstensil || item.ustensils.includes(selectedUstensil)) &&
+    (!selectedIngredient || item.ingredients.some((ing) => ing.ingredient.toLowerCase() === selectedIngredient)) &&
+    (!search || search.length < 3 ||
+      item.slug.includes(search) ||
+      item.description.includes(search) ||
+      item.ustensils.includes(search) ||
+      item.ingredients.some((ingred) => ingred.ingredient.includes(search)))
   );
+  console.log(originalData)
+
+  const Appareil = originalData.map((item) => item.appliance.toLowerCase());
+  const Ustensiles = originalData.flatMap((item) => item.ustensils);
+  const Ingredients = originalData.flatMap((item) =>
+    item.ingredients.map((i) => i.ingredient.toLowerCase())
+  );
+
   const uniqueIngredients = [...new Set(Ingredients)];
   const uniqueUstensiles = [...new Set(Ustensiles)];
   const uniqueAppareil = [...new Set(Appareil)];
 
-  useEffect(() => {
-    if (search.length >= 3) {
-      setdata(data.filter((item) => item.slug.includes(search)));
-    } else {
-      setdata(Data)
-    }
-  }, [search])
-
-  const resetFilters = () => {
-    setdata(originalData);
-  };
 
   return (
     <main>
       <div className="filterMain">
         <div className="new">
           <Filter
-            ValueFilter={uniqueAppareil}
-            OnselectFilter={(item) =>
-              setdata(originalData.filter((ite) => ite.appliance === item))
-            }
-            OnResetFilter={resetFilters}
-          />
-          <Filter
-            ValueFilter={uniqueUstensiles}
-            OnselectFilter={(item) =>
-              setdata(
-                originalData.filter((ite) => ite.ustensils.includes(item))
-              )
-            }
-            OnResetFilter={resetFilters}
-          />
-          <Filter
+            namefilter="Ingrédients"
             ValueFilter={uniqueIngredients}
             OnselectFilter={(item) =>
-              setdata(
-                originalData.filter((ite) =>
-                  ite.ingredients.some((ing) => ing.ingredient === item)
-                )
-              )
+              setselectedIngredient(item)
             }
-            OnResetFilter={resetFilters}
+            OnResetFilter={() => setselectedIngredient(null)}
+            selectedvalue={selectedIngredient}
+          />
+          <Filter
+            namefilter="Appareils"
+            ValueFilter={uniqueAppareil}
+            OnselectFilter={(item) =>
+              setselectedAppliance(item)
+            }
+            OnResetFilter={() => setselectedAppliance(null)}
+            selectedvalue={selectedAppliance}
+          />
+          <Filter
+            namefilter="Ustensiles"
+            ValueFilter={uniqueUstensiles}
+            OnselectFilter={(item) =>
+              setselectedUstensil(item)
+            }
+            OnResetFilter={() => setselectedUstensil(null)}
+            selectedvalue={selectedUstensil}
           />
         </div>
         <div>
-          <span>{data.length} recettes</span>
+          <span>{originalData.length} recettes</span>
         </div>
       </div>
       <div className="cardContente">
-        {data.map((e) => (
+        {originalData && originalData.length > 0 ? (originalData.map((e) => (
           <Link key={e.slug} href={`receipt/${e.slug}`}>
             <Card
               time={e.time}
@@ -78,7 +83,7 @@ export default function Home() {
               description={e.description}
             />
           </Link>
-        ))}
+        ))) : (<p>Aucune recette trouvée pour {search}</p>)}
       </div>
     </main>
   );

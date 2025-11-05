@@ -2,14 +2,47 @@ img {
     width: 606px;
     height: 738px;
     border-radius: 21px;
+    object-fit: cover;
 }
 
-.mainpage{
-display: flex;
-gap: 82px;
-padding-top: 70px;
-padding-right: 90px;
-padding-bottom: 70px;
-padding-left: 90px;
+.mainpage {
+    display: flex;
+    gap: 82px;
+    padding-top: 70px;
+    padding-right: 90px;
+    padding-bottom: 70px;
+    padding-left: 90px;
 
+}
+.mainpageleft{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 100%;
+}
+
+.ingredientListemainpage{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.timesetup{
+      display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    top: 21px;
+    right: 21px;
+    font-family: Manrope;
+    font-weight: 400;
+    font-size: 12px;
+    width: 63px;
+    height: 26px;
+    padding-top: 5px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    background-color: #FFD15B;
+    border-radius: 14px;
 }

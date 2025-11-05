@@ -1,6 +1,7 @@
 import "./filter.css";
 import { useState } from "react";
-export default function filter({ ValueFilter, OnselectFilter, OnResetFilter }) {
+import { FiChevronDown, FiChevronUp, FiSearch, FiX } from "react-icons/fi";
+export default function filter({ ValueFilter, OnselectFilter, OnResetFilter, namefilter, selectedvalue }) {
   const [isOpen, setIsOpen] = useState(false);
   const [tsest, settesest] = useState("");
   const [selected, setselected] = useState("");
@@ -17,24 +18,34 @@ export default function filter({ ValueFilter, OnselectFilter, OnResetFilter }) {
   const handleunselect = () => {
     setselected("");
     setselectedValue("");
-    OnResetFilter(); 
+    OnResetFilter();
+    settesest("")
   };
 
   return (
     <div>
       <div className={isOpen ? "selectFilterMain2" : "selectFilterMain"}>
         <div onClick={() => setIsOpen(!isOpen)} className="headerFilter">
-          <span>Ingrédients</span>
-          <span>v</span>
+          <span>{namefilter}</span>
+          {isOpen ? <FiChevronUp /> : <FiChevronDown />}
         </div>
         {isOpen && (
-          <div>
-            <input type="search" onChange={(e) => settesest(e.target.value)} />
-            <ul>
+          <div className="filtermenu">
+            <label>
+              <input type="search" onChange={(e) => settesest(e.target.value)} />
+              <FiSearch className="search-icon" />
+            </label>
+              {!selectedValue || 
+            <div className="yellow">
+            <p>{selectedvalue}</p>
+            <FiX onClick={() => handleunselect()} />
+            </div>
+            }
+            <ul className="filterul">
               {ValuFiltered.map((item) => (
                 <li
-                  onClick={() => handleItemClick(item) | setIsOpen(!isOpen)}
-                  className={selected === item ? "yellow" : " "}
+                  onClick={() => handleItemClick(item)}
+
                   key={item}
                 >
                   {item}
@@ -46,10 +57,11 @@ export default function filter({ ValueFilter, OnselectFilter, OnResetFilter }) {
       </div>
       {selected && (
         <div className="selected" >
-        <p >
-          {selectedValue}{" "}
-        </p>
-        <p onClick={() => handleunselect()}>X</p>
+          <p >
+            {selectedValue}{" "}
+          </p>
+          <FiX onClick={() => handleunselect()} />
+
         </div>
       )}
     </div>
