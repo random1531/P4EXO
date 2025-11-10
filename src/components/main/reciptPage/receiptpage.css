@@ -1,4 +1,4 @@
-img {
+.pictureReceipt {
     width: 606px;
     height: 738px;
     border-radius: 21px;
@@ -24,7 +24,7 @@ img {
 .ingredientListemainpage{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
+    gap: 30px;
 }
 
 .timesetup{
@@ -45,4 +45,18 @@ img {
     padding-left: 15px;
     background-color: #FFD15B;
     border-radius: 14px;
+}
+
+.gap{
+    display: flex;
+    flex-direction: column;
+    gap:10px
+}
+
+.descriptionreceiptpage{
+    font-family: Manrope;
+font-weight: 400;
+font-size: 16px;
+color: #1B1B1B;
+
 }

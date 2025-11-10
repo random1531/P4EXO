@@ -31,7 +31,7 @@ label{
     justify-content: center;
 }
 
-.loupe{
+.loupes{
     position: absolute;
     cursor: pointer;
     display: flex;
@@ -43,7 +43,10 @@ label{
     background-color: black;
     color: white;
     right: 5px;
+    border-radius: 10px;
 }
+
+
 
 .inputshearch {
     width: 954px;
@@ -51,7 +54,6 @@ label{
     opacity: 1;
     top: 406.42px;
     left: 243px;
-
     font-family: Manrope;
     font-weight: 400;
     color: #7A7A7A;
@@ -76,9 +78,7 @@ label{
     left: 275px;
     font-family: Anton;
     font-weight: 400;
-
     font-size: 44px;
-
     color: #FFD15B;
     text-align: center;
 

@@ -23,7 +23,7 @@ export default function filter({ ValueFilter, OnselectFilter, OnResetFilter, nam
   };
 
   return (
-    <div>
+    <div className="filterblock">
       <div className={isOpen ? "selectFilterMain2" : "selectFilterMain"}>
         <div onClick={() => setIsOpen(!isOpen)} className="headerFilter">
           <span>{namefilter}</span>
@@ -31,15 +31,15 @@ export default function filter({ ValueFilter, OnselectFilter, OnResetFilter, nam
         </div>
         {isOpen && (
           <div className="filtermenu">
-            <label>
-              <input type="search" onChange={(e) => settesest(e.target.value)} />
+            <label className="searcheinputfilter">
+              <input type="search" className="searchinput" onChange={(e) => settesest(e.target.value)} />
               <FiSearch className="search-icon" />
             </label>
-              {!selectedValue || 
-            <div className="yellow">
-            <p>{selectedvalue}</p>
-            <FiX onClick={() => handleunselect()} />
-            </div>
+            {!selectedValue ||
+              <div className="yellow">
+                <p>{selectedvalue}</p>
+                <FiX onClick={() => handleunselect()} />
+              </div>
             }
             <ul className="filterul">
               {ValuFiltered.map((item) => (

@@ -7,7 +7,6 @@ import { useState, useContext, useEffect } from "react";
 import { SearchContext } from "../context/SearchContext";
 
 export default function Home() {
-  const [data, setdata] = useState(Data);
   const [selectedIngredient, setselectedIngredient] = useState(null);
   const [selectedAppliance, setselectedAppliance] = useState(null);
   const [selectedUstensil, setselectedUstensil] = useState(null);
@@ -69,7 +68,7 @@ export default function Home() {
           />
         </div>
         <div>
-          <span>{originalData.length} recettes</span>
+          <span className="nbreceipt">{originalData.length} recettes</span>
         </div>
       </div>
       <div className="cardContente">

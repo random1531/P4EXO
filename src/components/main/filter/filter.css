@@ -20,7 +20,6 @@
     align-items: center;
     justify-content: flex-start;
     cursor: pointer;
-
     gap: 10px;
 }
 
@@ -55,10 +54,12 @@ ul {
 
 .search-icon {
     position: absolute;
-    right: 8px;
+    right: 15px;
     color: #555;
     pointer-events: none;
 }
+
+
 
 .selected {
     width: 195px;
@@ -75,9 +76,6 @@ ul {
 
 .filterul {
     padding-left: 16px;
-
-
-
 }
 
 .filtermenu {
@@ -88,9 +86,13 @@ ul {
     gap:10px;
     transition: height 1s ease;
 }
+.searchinput{
+    width: 90%;
+    padding-right: 17px;
+}
 
-
-label {
+.searcheinputfilter {
+    position: relative;
     display: flex;
     align-items: center;
     position: relative;
@@ -102,4 +104,10 @@ label {
     font-weight: 400;
     font-size: 14px;
     height: 19px;
+}
+
+.filterblock{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }

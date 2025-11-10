@@ -12,14 +12,14 @@ export default function cards({ time, picture, namereceipt, description, ingredi
                 <Image src={`/pictures/${picture}`} className="picturecard" alt="" width={380} height={253} />
             </div>
             <div className="textcontentCard">
-                <h3>{namereceipt}</h3>
+                <h3 className="titlecard">{namereceipt}</h3>
                 <div className="cardInformationreceipt">
-                    <div>
+                    <div className="reciptdescription">
 
                         <span className="spanCard">RECETTE</span>
                         <p className="textcontentCardDescription">{description}</p>
                     </div>
-                    <div>
+                    <div className="ingredientcardlayout">
                         <span className="spanCard">Ingrédients</span>
                         <div className="ingredientListCard">
                          <Liingredient item={ingredient}/>
